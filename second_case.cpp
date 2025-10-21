@@ -8,6 +8,8 @@ using namespace std;
 const int N = 18;
 const int INF = numeric_limits<int>::max();
 
+int possible_paths = 0;
+
 vector<vector<int>> dist = {
     {0, 20, INF, INF, INF, INF, INF, 29, INF, INF, INF, 29, 37, INF, INF, INF, INF, INF},
     {20, 0, 25, INF, INF, INF, INF, 28, INF, INF, INF, 39, INF, INF, INF, INF, INF, INF},
@@ -61,6 +63,8 @@ void findPath(int actual_node, vector<bool> &visited, int actual_cost, int visit
                 best_path = actual_path;
                 best_path.push_back(0);
             }
+
+            possible_paths++;
 
             // if (actual_cost <= min_cost)
             // {
@@ -117,5 +121,6 @@ int main()
     else
     {
         printPath();
+        cout << "Quantidade de caminhos encontrados: " << possible_paths << endl;
     }
 }
